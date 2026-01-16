@@ -208,11 +208,13 @@ p {
         cursor: pointer;
     }
 
-    .burger-icon::after {
-        content: '≡'; /* Твой символ бургера */
-        font-size: 35px;
-        color: #fff;
-    }
+  /* Рисуем три полоски гамбургера вместо одного символа для красоты */
+  .burger-icon::before {
+    content: '≡'; /* Можно оставить символ, если так проще */
+    font-size: 35px;
+    color: #fff;
+    line-height: 1;
+  }
 
     /* 2. Настраиваем мобильное меню */
     .mobile-menu {
