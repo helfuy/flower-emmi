@@ -198,7 +198,8 @@ p {
     line-height: 1.4;
   }
 
-/* 1. Показываем иконку бургера */
+@media (max-width: 768px) {
+    /* 1. Показываем иконку бургера */
     .burger-icon {
         display: flex !important; /* !important гарантирует, что иконка появится */
         width: 40px;
@@ -208,13 +209,11 @@ p {
         cursor: pointer;
     }
 
-  /* Рисуем три полоски гамбургера вместо одного символа для красоты */
-  .burger-icon::before {
-    content: '≡'; /* Можно оставить символ, если так проще */
-    font-size: 35px;
-    color: #fff;
-    line-height: 1;
-  }
+    .burger-icon::after {
+        content: '≡'; /* Твой символ бургера */
+        font-size: 35px;
+        color: #fff;
+    }
 
     /* 2. Настраиваем мобильное меню */
     .mobile-menu {
@@ -237,7 +236,7 @@ p {
     .mobile-menu.active {
         right: 0 !important;
     }
-
+}
 
 
   .mobile-nav {
@@ -1051,6 +1050,7 @@ footer {
   font-size: 0.95rem;
   border-top: 1px solid #111;
 }
+
 
 
 
