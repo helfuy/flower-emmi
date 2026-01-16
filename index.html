@@ -199,18 +199,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const burgerBtn = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const closeBtn = document.getElementById('menuClose');
-    
-    // 1. Находим все ссылки внутри мобильного меню
+    // Находим ссылки именно внутри мобильного нава
     const mobileLinks = document.querySelectorAll('.mobile-nav a');
 
-    if (burgerBtn && mobileMenu) {
+    // Открытие меню
+    if (burgerBtn) {
         burgerBtn.addEventListener('click', (e) => {
-            e.preventDefault();
             mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Добавь это, чтобы страница не крутилась под меню
+            document.body.style.overflow = 'hidden'; // Запрещаем скролл сайта
         });
     }
 
+    // Закрытие на крестик
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
@@ -218,11 +218,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. ДОБАВЬ ЭТОТ БЛОК: Закрытие при клике на ссылку
+    // ЗАКРЫТИЕ ПРИ КЛИКЕ НА ЛЮБУЮ ССЫЛКУ
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
-            mobileMenu.classList.remove('active'); // Закрываем шторку
-            document.body.style.overflow = '';    // Возвращаем скролл основной странице
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = ''; // Возвращаем скролл
         });
     });
 });
@@ -311,6 +311,7 @@ tags.forEach(tag => {
 </body>
 
 </html>
+
 
 
 
