@@ -173,13 +173,6 @@ p {
     display: none; 
   }
 
-  /* Рисуем три полоски гамбургера вместо одного символа для красоты */
-  .burger-icon::before {
-    content: '≡'; /* Можно оставить символ, если так проще */
-    font-size: 35px;
-    color: #fff;
-    line-height: 1;
-  }
 
   /* --- Hero секция --- */
   .hero {
@@ -1056,5 +1049,6 @@ footer {
   font-size: 0.95rem;
   border-top: 1px solid #111;
 }
+
 
 
