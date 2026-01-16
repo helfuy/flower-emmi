@@ -1,0 +1,1044 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #fdfaf7;
+  font-family: 'Inter', sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  background: rgba(20, 20, 20, 0.45);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 60px;
+  padding: 14px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 70px;
+  width: 1420px;
+  font-size: 30px;
+  margin: auto;
+}
+
+.wrapper{
+    width: 100%;
+    margin: auto;
+    background: #000000;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+nav {
+  display: flex;
+  gap: 44px;
+}
+
+nav a {
+  color: #e0e0d8;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #c8d5c5;
+  text-shadow: 0 0 12px rgba(200, 213, 197, 0.35);
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+  background: #000000;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-bg img {
+  width: 60%;
+  object-fit: cover;
+  object-position: center 10%; 
+  filter: brightness(0.48) contrast(1.1) saturate(1.25);
+  transition: transform 14s ease, filter 1.8s ease;
+}
+
+.hero:hover .hero-bg img {
+  transform: scale(1.04);
+  filter: brightness(0.58) contrast(1.05) saturate(1.4);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1440px;
+  padding: 0 5vw;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: gentleAppear 1.6s 0.5s forwards cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+@keyframes gentleAppear {
+  to {
+  opacity: 1;
+  transform: translateY(0);
+  }
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.8rem, 9vw, 8.8rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  margin: 0 0 0.4em;
+  color: #fffdf9;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.3rem, 3.5vw, 1.75rem);
+  font-weight: 300;
+  line-height: 1.5;
+  max-width: 720px;
+  margin: 0 auto;
+  color: rgba(255,253,249,0.92);
+  letter-spacing: 0.4px;
+}
+
+@media (max-width: 1024px) {
+  header {
+    width: 88%; /* На планшетах хедер шире */
+    gap: 20px;
+    padding: 12px 30px;
+  }
+}
+
+/* ─────────────── МОБИЛЬНАЯ ВЕРСИЯ (768px и ниже) ─────────────── */
+@media (max-width: 768px) {
+  
+  /* --- Хедер --- */
+  header {
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* Исправлено с 13% на 90% */
+    padding: 10px 25px;
+    height: 65px;
+    border-radius: 40px;
+    gap: 0;
+    justify-content: space-between;
+    font-size: 20px;
+  }
+
+  .logo {
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+
+  /* Скрываем десктопную навигацию */
+  nav {
+    display: none; 
+  }
+
+  /* Иконка бургера */
+  .burger-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  /* Рисуем три полоски гамбургера вместо одного символа для красоты */
+  .burger-icon::before {
+    content: '≡'; /* Можно оставить символ, если так проще */
+    font-size: 35px;
+    color: #fff;
+    line-height: 1;
+  }
+
+  /* --- Hero секция --- */
+  .hero {
+    min-height: 500px;
+    height: 80vh;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 10vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    padding: 0 15px;
+    line-height: 1.4;
+  }
+
+  /* --- Мобильное меню (выезжающее) --- */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Скрыто за краем */
+    width: 100%;
+    height: 100vh;
+    background: rgba(10, 10, 10, 0.98); /* Глубокий темный фон */
+    backdrop-filter: blur(20px);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Класс, который добавляет JS */
+  .mobile-menu.active {
+    right: 0;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    text-align: center;
+  }
+
+  .mobile-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    transition: 0.3s;
+  }
+
+  .mobile-nav a:active {
+    color: #bc9c82; /* Цвет при нажатии */
+  }
+
+  .menu-close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 45px;
+    color: #fff;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* --- Сетки (Форма, Контакты, Доставка) --- */
+  .input-group, 
+  .care-grid, 
+  .contacts-container,
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .feedback-form {
+    width: 95%;
+    padding: 30px 20px;
+    border-radius: 25px;
+    margin-bottom: 30px;
+  }
+
+  /* Витрина цветов на мобилке */
+  .bouquets-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+    gap: 15px;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+}
+
+/* ─────────────── СОВСЕМ МАЛЕНЬКИЕ ЭКРАНЫ (480px) ─────────────── */
+@media (max-width: 480px) {
+  header {
+    width: 92%;
+    padding: 10px 20px;
+  }
+
+  .logo {
+    font-size: 19px;
+  }
+
+  .bouquets-grid {
+    grid-template-columns: 1fr; /* 1 колонка для очень узких тел */
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    top: 10px;
+    padding: 8px 18px;
+    width: 80%;
+    margin: auto;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+
+  h1 {
+    letter-spacing: 0;
+  }
+}
+
+/* О нас */
+.about {
+  background: #fdfaf7;    width: 100%;
+  color: #2c2c28;
+  padding: 40px 0 120px;
+  position: relative;
+}
+
+.about::before {
+content: '';
+position: absolute;
+inset: 0;
+background: #f8f8f6;
+z-index: -1;
+}
+
+.about-wrapper {
+max-width: 1500px;
+width: 100%;
+margin: 0 auto;
+padding: 0 40px;
+position: relative;
+z-index: 1;
+}
+
+.about h2 {
+font-family: 'Playfair Display', serif;
+font-size: 2.8rem;
+font-weight: 400;
+text-align: center;
+margin-bottom: 80px;
+color: #1a1a16;
+letter-spacing: -0.5px;
+position: relative;
+}
+
+.about h2::after {
+content: '';
+position: absolute;
+bottom: -18px;
+left: 50%;
+transform: translateX(-50%);
+width: 120px;
+height: 2px;
+background: linear-gradient(90deg, transparent, #c8d5c5, transparent);
+}
+
+.about-content {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 90px;
+align-items: center;
+}
+
+.about-text {
+max-width: 620px;
+}
+
+.intro {
+font-size: 1.75rem;
+font-weight: 500;
+line-height: 1.4;
+margin-bottom: 1.8em;
+color: #3a3a36;
+}
+
+.about-text p {
+font-size: 1.28rem;
+line-height: 1.78;
+margin-bottom: 1.6em;
+color: #4a4a44;
+}
+
+.signature {
+font-family: 'Playfair Display', serif;
+font-size: 1.895rem;
+font-style: italic;
+margin-top: 2.5em;
+color: #5a5a52;
+}
+
+.signature span {
+font-style: normal;
+font-weight: 600;
+color: #2c2c28;
+}
+
+.about-image {
+height: 670px;
+background: linear-gradient(135deg, #e8ece5 0%, #f2f4ef 100%);
+border-radius: 24px;
+position: relative;
+overflow: hidden;
+box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 1024px) {
+  .about-wrapper {
+    padding: 0 30px;
+  }
+  
+  .about-content {
+    gap: 50px;
+  }
+
+  .intro {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 60px 0 40px;
+  }
+
+  .about h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr; /* Одна колонка */
+    gap: 20px;
+    text-align: center;
+  }
+
+  /* Полностью скрываем блок с картинкой */
+  .about-image {
+    display: none;
+  }
+
+  .about-text {
+    max-width: 100%;
+    padding: 0 10px;
+    /* order больше не нужен, так как остался только один блок */
+  }
+
+  .intro {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: 1em;
+  }
+
+  .about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.2em;
+  }
+
+  .signature {
+    font-size: 1.4rem;
+    margin-top: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .about h2 {
+    font-size: 1.8rem;
+  }
+}
+
+.flowers-section {
+background: #fdfaf7;
+padding: 40px 0 60px;
+width: 100%;
+overflow-x: hidden; /* Гарантирует, что ничего не выйдет за пределы экрана телефона */
+}
+
+.flowers-wrapper {
+max-width: 1500px;
+margin: 0 auto;
+padding: 0 40px;
+}
+
+.flowers-wrapper::after {
+content: '';
+position: absolute;
+bottom: -1070px;
+left: 50%;
+transform: translateX(-50%);
+width: 180px;
+height: 2px;
+background: linear-gradient(90deg, transparent, #c8d5c5, transparent);
+}
+
+.flowers-section h2 {
+font-family: 'Playfair Display', serif;
+font-size: 2.8rem;
+font-weight: 400;
+text-align: center;
+margin-bottom: 100px;
+color: #1a1a16;
+}
+
+.flowers-content {
+display: grid;
+grid-template-columns: 340px 1fr;
+gap: 80px;
+align-items: start;
+}
+
+/* Левая колонка */
+.categories {
+background: #ffffff75;
+border-radius: 24px;
+padding: 40px 30px;
+box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+}
+
+.categories h3 {
+font-size: 2.1rem;
+margin-bottom: 30px;
+color:  #342214 ;
+text-align: center;
+}
+
+.category-list {
+list-style: none;
+}
+
+.category-item {
+padding: 16px 24px;
+margin-bottom: 12px;
+font-size: 1.18rem;
+color: #5a5a52;
+cursor: pointer;
+border-radius: 12px;
+transition: all 0.3s ease;
+}
+
+.category-item:hover, .category-item.active {
+background: #fed7b72c;
+color: #342214;
+font-weight: 500;
+}
+
+/* Правая часть — карточки */
+.bouquets-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+gap: 30px; 
+}
+
+.bouquet-card {
+background: white;
+border-radius: 20px; /* чуть мягче углы */
+overflow: hidden;
+box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+transition: transform 0.4s ease, box-shadow 0.4s ease;
+opacity: 0;
+transform: translateY(20px);
+animation: cardAppear 0.6s forwards;
+}
+
+.bouquet-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+.card-image {
+width: 90%;
+height: 320px; 
+object-fit: cover;
+}
+
+.card-info {
+padding: 18px; 
+text-align: center;
+}
+
+.card-title {
+font-family: 'Playfair Display', serif;
+font-size: 1.45rem; /* было 1.65rem */
+margin: 0 0 8px;
+color: #1a1a16;
+}
+
+.card-price {
+font-size: 1.28rem; /* было 1.45rem */
+font-weight: 600;
+color: #bc9c82 ;
+margin: 6px 0 14px;
+}
+
+.btn-order {
+display: inline-block;
+padding: 10px 26px; /* было 14px 32px → компактнее */
+background: #1a1a1a;;
+color: #ffffff;
+text-decoration: none;
+border-radius: 30px;
+font-weight: 500;
+font-size: 0.98rem; /* чуть меньше */
+transition: all 0.3s ease;
+}
+
+.btn-order:hover {
+background: #bc9c82;
+transform: translateY(-2px);
+}
+
+/* Анимация появления карточек  */
+@keyframes cardAppear {
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* ─────────────── ТЕЛЕФОННАЯ ВЕРСИЯ FLOWERS ─────────────── */
+@media (max-width: 768px) {
+  /* Основной контейнер */
+  .flowers-content {
+    display: block; /* Убираем грид для внешней структуры */
+    width: 99%;
+    overflow-x: hidden; /* Защита от вылета */
+  }
+
+  .flowers-wrapper {
+    padding: 0 15px; /* Минимальные отступы по бокам */
+  }
+
+  .flowers-wrapper h2::after {
+    content: '';
+    position: absolute;
+    bottom: -990px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c8d5c5, transparent);
+  }
+
+.category-list {
+    display: flex;             /* Выстраиваем в ряд */
+    overflow-x: auto;          /* Включаем горизонтальный скролл */
+    overflow-y: hidden;        /* Запрещаем вертикальный скролл внутри */
+    scroll-snap-type: x mandatory; /* Магнитный эффект при скролле */
+    -webkit-overflow-scrolling: touch; /* Плавность на iPhone */
+    gap: 12px;
+    padding: 10px 5px 20px 5px; /* Отступы, чтобы тени не обрезались */
+    list-style: none;
+  }
+
+  .category-item {
+    flex: 0 0 auto;           /* Запрещаем кнопкам сжиматься */
+    scroll-snap-align: start; /* Кнопка «прилипает» к краю при скролле */
+    white-space: nowrap;      /* Текст всегда в одну строку */
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;      /* Округлые кнопки в стиле хедера */
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+
+  /* Скрываем полосу прокрутки (скроллбар) */
+  .category-list::-webkit-scrollbar {
+    display: none;
+  }
+  .category-list {
+    -ms-overflow-style: none;  
+    scrollbar-width: none;  
+  }
+
+  /* Исправляем сетку карточек */
+  .bouquets-grid {
+    margin-top: 40px;
+    display: grid;
+    /* repeat(2, 1fr) заставляет 2 карточки встать ровно в ряд без вылетов */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 12px; /* Узкий зазор, чтобы влезло больше контента */
+    width: 100%;
+  }
+
+  .bouquet-card {
+    margin-top: 40px;
+    width: 100%; /* Карточка занимает свою долю грида */
+    margin: 0;
+    transform: none; /* Убираем анимации для скорости на мобайле */
+    animation: none;
+    opacity: 1;
+  }
+
+  .card-image {
+    width: 100%; /* Картинка всегда равна ширине карточки */
+    height: 180px; /* Фиксированная высота для аккуратности */
+    object-fit: cover;
+  }
+
+  /* Текст и кнопки */
+  .card-info {
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 0.95rem; /* Компактный шрифт */
+    white-space: nowrap; /* Не дает заголовку ломать высоту */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-price {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+
+  .btn-order {
+    padding: 8px 5px;
+    font-size: 0.8rem;
+    width: 100%;
+  }
+
+}
+/* Для самых маленьких экранов (менее 360px) */
+@media (max-width: 360px) {
+  .bouquets-grid {
+    grid-template-columns: 1fr; /* По одному в ряд только на совсем крошечных экранах */
+  }
+}
+
+/* ─────────────── Конструктор ─────────────── */
+.feedback-section {
+  padding: 90px 20px;
+  background-color: #fdfaf7;
+  text-align: center;
+}
+
+.feedback-header {
+  max-width: 1500px;
+  margin: 0 auto 50px;
+}
+
+.feedback-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 50px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.feedback-text {
+  color: #000000 !important;
+  font-family: 'Playfair Display', serif;
+  max-width: 1000px;
+}
+
+.feedback-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.feedback-info{
+  margin-bottom: 50px;
+}
+
+.feedback-form {
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  background: #fff;
+  max-width: 1000px;
+  margin: 0 auto 50px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input-group {
+  display: flex; 
+  gap: 20px;     
+}
+
+.feedback-form input, .feedback-form textarea {
+  width: 100%;
+  padding: 18px 25px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.feedback-form input:focus, .feedback-form textarea:focus {
+  outline: none;
+  border-color: #bc9c82;
+  box-shadow: 0 4px 15px rgba(188, 156, 130, 0.1);
+}
+
+.submit-btn{
+  padding: 18px;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #bc9c82;
+  transform: translateY(-2px);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 600px) {
+  .input-group {
+    flex-direction: column; /* На телефонах поля будут друг под другом */
+    gap: 15px;
+  }
+  .feedback-form {
+    padding: 25px;
+  }
+
+  .feedback-title{
+    width: 100%;
+    font-size: 45px;
+  }
+}
+
+/*Секция доставка*/
+.delivery-care {
+  padding: 0px 20px 20px;
+  background-color: #fdfaf7;
+  color: #1a1a1a;
+}
+
+.care-container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.care-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.care-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.care-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.care-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease;
+  text-align: left;
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+.care-card:hover {
+  transform: translateY(-10px);
+}
+
+.care-icon {
+  font-size: 1.8rem;
+  color: #bc9c82;
+  margin-bottom: 20px;
+}
+
+.care-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.care-card p {
+  color: #6b6b6b;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .care-header h2 { font-size: 2.2rem; }
+  .care-grid { gap: 20px; }
+  .care-header{margin-bottom: 20px;}
+}
+
+/*СЕКЦИЯ КОНТАКТЫ*/
+.contacts-section {
+  padding: 50px 20px;
+  background-color: #fdfaf7;
+}
+
+.contacts-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.contacts-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.contacts-subtitle {
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Элементы контактов */
+.contact-item {
+  margin-bottom: 25px;
+}
+
+.contact-label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #bc9c82;
+  margin-bottom: 5px;
+}
+
+.contact-item p, .contact-item a {
+  font-size: 1.2rem;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-item a:hover {
+  color: #bc9c82;
+}
+
+/* Соцсети */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.social-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  background: #1a1a1a;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Блок карты */
+.contacts-map {
+  height: 100%;
+  background: #fff;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+  position: relative;
+}
+
+.iframe{
+  border-radius: 20px !important;
+}
+.map-placeholder {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #bc9c82;
+  background: #f1ede8; /* Чуть темнее фона для контраста */
+}
+
+.map-placeholder i { font-size: 3rem; margin-bottom: 15px; }
+
+@media (max-width: 850px) {
+  .contacts-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
+  }
+  .social-links { justify-content: center; }
+  .contacts-map { height: 300px; }
+}
+
+footer {
+  text-align: center;
+  padding: 80px 20px;
+  color: #555;
+  font-size: 0.95rem;
+  border-top: 1px solid #111;
+}

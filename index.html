@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flower-Emmi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="logo">Flower-Emmi</div>
+            <nav>
+                <a href="#we">О нас</a>
+                <a href="#flowers">Наши цветы</a>
+                <a href="#feedback">Конструктор</a>
+                <a href="#delivery">Доставка</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <div class="burger-icon" id="burgerBtn"></div>
+        </header>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="menu-close" id="menuClose">&times;</div>
+            <nav class="mobile-nav">
+                <a href="#we">О нас</a>
+                <a href="#flowers">Наши цветы</a>
+                <a href="#feedback">Конструктор</a>
+                <a href="#delivery">Доставка</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+        </div>
+
+        <div class="hero">
+        <div class="hero-bg">
+            <img src="img/image 1.png" alt="Цветочная композиция">
+        </div>
+        
+        <div class="hero-content">
+            <h1>Искусство в каждом лепестке</h1>
+            <p>Создаем уникальные цветочные композиции с душой. Минимализм, элегантность и естественная красота в каждом букете.</p>
+        </div>
+        </div>
+    </div>
+        <section id="we" class="about">
+        <div class="about-wrapper">
+            <h2>О нас</h2>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="intro">
+                    Flower-Emmi — это маленькая мастерская, где каждый букет рождается с душой и вниманием к деталям.
+                    </p>
+                    
+                    <p>
+                    Мы верим, что цветы — это не просто растения. Это эмоции, настроение, признание в любви, поддержка в трудный момент и тихая радость обычного дня.
+                    </p>
+                    
+                    <p>
+                    Выбираем только самые свежие цветы от проверенных голландских и эквадорских ферм.  
+                    Составляем композиции в стиле минимализм, natural chic и slow flower — без лишней мишуры, только естественная красота и гармония.
+                    </p>
+                    
+                    <p class="signature">
+                    С любовью к вам и к каждому лепестку,<br>
+                    <span>Елизавета & команда Flower-Emmi</span>
+                    </p>
+                </div>
+                
+                <div class="about-image">
+                    <img src="img/5e901.jpg" alt="Мастерская"> 
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <section id="flowers" class="flowers-section">
+        <div class="flowers-wrapper">
+            <h2>Наши цветы</h2>
+
+            <div class="flowers-content">
+            <!-- Левая колонка — категории -->
+            <div class="categories">
+                <h3>Выбери букет на свой вкус</h3>
+                <ul class="category-list">
+                <li class="category-item active" data-category="all">Авторские букеты</li>
+                <li class="category-item" data-category="premium">Премиум букеты</li>
+                <li class="category-item" data-category="basket">Букеты в корзинках</li>
+                <li class="category-item" data-category="wedding">Свадебные букеты</li>
+                <li class="category-item" data-category="holiday">Букет для праздника</li>
+                <li class="category-item" data-category="holiday">Букет "Маме"</li>
+                <li class="category-item" data-category="holiday">Подарки</li>
+                </ul>
+            </div>
+
+            <!-- Правая часть — карточки букетов -->
+            <div class="bouquets-grid" id="bouquetsGrid">
+                <!-- Карточки будут добавляться через JS -->
+            </div>
+            </div>
+        </div>
+        </section>
+
+
+        <section id="feedback" class="feedback-section">
+            <div class="feedback-container">
+                <div class="feedback-info">
+                <h2 class="feedback-title">Индивидуальный заказ</h2>
+                    <p class="feedback-text">
+                        Если вам не подошел ни один из наших вариантов или вы хотите сами собрать букет с любовью — заполните форму, оставьте свои контакты и пожелания!
+                    </p>
+                </div>
+
+                <form class="feedback-form">
+                <div class="input-group">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="tel" placeholder="Номер телефона" required>
+                </div>
+                <textarea placeholder="Ваши пожелания (состав, повод, бюджет...)" rows="4"></textarea>
+                <button type="submit" class="submit-btn">Отправить запрос</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="delivery" class="delivery-care">
+        <div class="care-container">
+            <div class="care-header">
+            <h2>Забота в каждой доставке</h2>
+            <p>Мы продумали всё, чтобы ваши цветы радовали глаз как можно дольше</p>
+            </div>
+
+            <div class="care-grid">
+            <div class="care-card">
+                <div class="care-icon"><i class="fas fa-truck-moving"></i></div>
+                <h3>Бережная доставка</h3>
+                <p>Перевозим букеты в специальных аквапаках и защитных боксах, соблюдая температурный режим.</p>
+            </div>
+
+            <div class="care-card">
+                <div class="care-icon"><i class="fas fa-vial"></i></div>
+                <h3>Кризал (подкормка)</h3>
+                <p>К каждому букету мы прилагаем специальный порошок, который продлевает жизнь цветов до 14 дней.</p>
+            </div>
+
+            <div class="care-card">
+                <div class="care-icon"><i class="fas fa-list-check"></i></div>
+                <h3>Инструкция</h3>
+                <p>Внутри вы найдете краткий гайд: как правильно подрезать стебли и как часто менять воду.</p>
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <section class="contacts-section">
+            <div class="contacts-container">
+                <div class="contacts-info">
+                <h2 class="contacts-title">Будем на связи</h2>
+                <p class="contacts-subtitle">Загляните к нам в гости или просто напишите в удобном мессенджере.</p>
+                
+                <div class="contact-item">
+                    <span class="contact-label">Адрес</span>
+                    <p>Москва, ул. Цветочная, д. 15</p>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-label">Телефон</span>
+                    <p><a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-label">Режим работы</span>
+                    <p>Ежедневно с 09:00 до 21:00</p>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-telegram-plane"></i></a>
+                </div>
+                </div>
+
+                <div class="contacts-map">
+                <div class="map-placeholder">
+                    <iframe class="iframe" src="https://yandex.ru/map-widget/v1/?um=constructor%3A256968b27130d236a7cc1f8829dbe42165d41379e04535c63cd42f67809c6af4&amp;source=constructor" width="754" height="460" frameborder="0"></iframe>                </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+        Flower-Emmi © 2026 • С любовью из сердца
+        </footer>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const burgerBtn = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuClose = document.getElementById('menuClose');
+    const menuLinks = document.querySelectorAll('.mobile-nav a');
+
+    // Открыть меню
+    burgerBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Запретить скролл сайта
+    });
+
+    // Закрыть меню на крестик
+    menuClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = ''; // Вернуть скролл
+    });
+
+    // Закрыть меню при клике на ссылку (плавный переход)
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+});
+
+
+
+
+  // Данные букетов (можно потом расширить)
+  const bouquets = {
+    all: [
+      { name: "Гармония души", price: "от 5 900 ₽", img: "img/image-21.png" },
+      { name: "Нежная любовь", price: "от 6 200 ₽", img: "img/image-22.png" },
+      { name: "Агата Кристи", price: "от 7 400 ₽", img: "img/image-23.png" },
+      { name: "Розовая душа", price: "от 5 500 ₽", img: "img/image-24.png" },
+    ],
+    premium: [
+      { name: "Гармония души", price: "от 5 900 ₽", img: "img/image-23.png" },
+      { name: "Нежная любовь", price: "от 6 200 ₽", img: "img/image-25.png" },
+    ],
+    basket: [
+      { name: "Агата Кристи", price: "от 7 400 ₽", img: "img/image-22.png" },
+      { name: "Розовая душа", price: "от 7 400 ₽", img: "img/image-25.png" },
+      { name: "Нежная любовь", price: "от 6 200 ₽", img: "img/image-22.png" },
+    ],
+    wedding: [
+      { name: "Гармония души", price: "от 5 900 ₽", img: "img/image-23.png" },
+      { name: "Нежная любовь", price: "от 6 200 ₽", img: "img/image-25.png" },
+    ],
+    holiday: []
+  };
+
+  const grid = document.getElementById('bouquetsGrid');
+  const categoryItems = document.querySelectorAll('.category-item');
+
+  function renderBouquets(category) {
+    grid.innerHTML = ''; // очищаем
+    const items = bouquets[category] || bouquets.all;
+
+    items.forEach(bouquet => {
+      const card = document.createElement('div');
+      card.className = 'bouquet-card';
+      card.innerHTML = `
+        <img src="${bouquet.img}" alt="${bouquet.name}" class="card-image">
+        <div class="card-info">
+          <h3 class="card-title">${bouquet.name}</h3>
+          <div class="card-price">${bouquet.price}</div>
+          <a href="#" class="btn-order">Заказать букет</a>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // Клик по категориям
+  categoryItems.forEach(item => {
+    item.addEventListener('click', () => {
+      categoryItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      
+      const category = item.getAttribute('data-category');
+      renderBouquets(category);
+    });
+  });
+
+  // Показываем все при загрузке
+  renderBouquets('all');
+
+
+  //телефонная версия
+const tags = document.querySelectorAll('.category-item');
+
+tags.forEach(tag => {
+  tag.addEventListener('click', function() {
+    // Убираем активный класс у всех и даем текущему
+    tags.forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+    
+    // Плавно скроллим выбранную категорию в центр
+    this.scrollIntoView({
+      behavior: 'smooth',
+      inline: 'center',
+      block: 'nearest'
+    });
+  });
+});
+
+</script>
+
+</body>
+</html>
