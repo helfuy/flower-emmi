@@ -199,24 +199,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const burgerBtn = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const closeBtn = document.getElementById('menuClose');
+    
+    // 1. Находим все ссылки внутри мобильного меню
+    const mobileLinks = document.querySelectorAll('.mobile-nav a');
 
     if (burgerBtn && mobileMenu) {
         burgerBtn.addEventListener('click', (e) => {
             e.preventDefault();
             mobileMenu.classList.add('active');
-            console.log("Меню открыто"); // Для проверки в консоли телефона
+            document.body.style.overflow = 'hidden'; // Добавь это, чтобы страница не крутилась под меню
         });
     }
 
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
+            document.body.style.overflow = ''; // Возвращаем скролл
         });
     }
+
+    // 2. ДОБАВЬ ЭТОТ БЛОК: Закрытие при клике на ссылку
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active'); // Закрываем шторку
+            document.body.style.overflow = '';    // Возвращаем скролл основной странице
+        });
+    });
 });
-
-
-
 
   // Данные букетов (можно потом расширить)
   const bouquets = {
@@ -302,6 +311,7 @@ tags.forEach(tag => {
 </body>
 
 </html>
+
 
 
 
